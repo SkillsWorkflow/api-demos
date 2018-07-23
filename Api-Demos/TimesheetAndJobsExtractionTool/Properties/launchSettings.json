@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TimesheetAndJobsExtractionTool.Core": {
+      "commandName": "Project",
+      "commandLineArgs": "-Year 2018 -Clientid 6D196D72-A028-40D0-BFFB-8BF0AFCB3A53 -Endpoint apiv2-playground-dev-we.skillsworkflow.com -Tenantid c8d054c7-9933-4b6d-9e55-66ed1ba9526d -Apikey b3ed8d10-7967-4730-aebb-407bb350c75c -Apisecret rOHp32NyKMiqvTbu0brMbKffzLuxYUzvhv4Ao9FeZnA="
+    }
+  }
+}
