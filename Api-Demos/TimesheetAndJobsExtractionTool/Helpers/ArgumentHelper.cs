@@ -13,7 +13,7 @@ namespace TimesheetAndJobsExtractionTool.Core.Helpers
                 Name = "Api demos - Skills WorkFlow Extraction Tool",
                 Description = "Skills Workflow - Timesheet and Jobs Extraction Tool",
                 ExtendedHelpText = Environment.NewLine 
-                                   + "Usage: -Year <year> -ClientId <clientID> -Tenantid <tenantId> -Endpoint <endpoint> -ApiKey <apikey> -ApiSecret <apisecret>" 
+                                   + "Usage: -Year <year> -Clientid <clientID> -Tenantid <tenantId> -Endpoint <endpoint> -Apikey <apikey> -Apisecret <apisecret>" 
                                    + Environment.NewLine
                                    + "Year: Year For Extracting Data"
                                    + Environment.NewLine
@@ -44,11 +44,6 @@ namespace TimesheetAndJobsExtractionTool.Core.Helpers
 
             app.OnExecute(() =>
             {
-                if (app.Options.TrueForAll(t => string.IsNullOrEmpty(t.Value())))
-                {
-                    app.ShowHelp();
-                    Environment.Exit(-1);
-                }
                 if (string.IsNullOrEmpty(yearOption.Value()))
                 {
                     Console.WriteLine($"Year Missing...");
@@ -90,6 +85,11 @@ namespace TimesheetAndJobsExtractionTool.Core.Helpers
             });
             
             app.Execute(args);
+
+            if (app.Options.TrueForAll(t => string.IsNullOrEmpty(t.Value())))
+            {
+                Environment.Exit(-1);
+            }
 
             var result = new ArgumentDto
             {

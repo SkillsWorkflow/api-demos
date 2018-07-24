@@ -12,6 +12,8 @@ namespace TimesheetAndJobsExtractionTool.Core.Helpers
 
         internal static void ExportToCsv(string fileName, object[] data)
         {
+            var timestamp = DateTime.UtcNow.ToShortDateString().Replace("/", "") + "_" + DateTime.UtcNow.ToShortTimeString().Replace(":","");
+            fileName = fileName + "_" + timestamp;
             var sb = new StringBuilder();
             var line = string.Empty;
             var header = JObject.Parse(JsonConvert.SerializeObject(data[0]));
